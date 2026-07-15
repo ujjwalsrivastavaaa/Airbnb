@@ -1,10 +1,9 @@
 import React from "react";
+import Nav from "../Component/Nav";
 function Home(){
     return (
         <div>
-              <h1 className="text-4xl font-bold text-blue-500">
-      Hello
-    </h1>
+        <Nav/>
         </div>
     )
 }
