@@ -1,7 +1,7 @@
-import User from "../model/user.model.js"
+import { User } from "../model/user.model.js"
 export const getCurrentUser=async (req,res)=>{
     try{
-     let user=await User.findById(req.userId).select(-password)
+     let user=await User.findById(req.userId).select("-password")
      if(!user){
         res.status(400).json({messsage:"user does not found"})
      }

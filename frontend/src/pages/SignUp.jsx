@@ -3,8 +3,9 @@ import React, { useState,useContext} from "react";
  import { FaEyeSlash } from "react-icons/fa";
  import { FaArrowLeft } from "react-icons/fa";
  import {useNavigate} from "react-router-dom";
- import { authDataContext } from "../Context/AuthContext";
+ import { authDataContext } from "../Context/AuthContext.jsx";
  import axios from "axios";
+import { userDataContext } from "../Context/UserContext.jsx";
 function SignUp(){
 
     let [show,setShow] =useState(false);
@@ -13,7 +14,7 @@ function SignUp(){
     let [name,setName]=useState("")
     let [email,setEmail]=useState("")
     let [password,setPassword]=useState("")
-
+    let {userData,setUserData}=useContext(userDataContext)
     const handleSignup=async (e)=>{
      
      try{
@@ -21,6 +22,8 @@ function SignUp(){
          let res=await axios.post(serverUrl + "/api/auth/signup",{
           name,email,password
          },{withCredentials:true})
+         setUserData(res.data)
+         navigate("/")
          console.log(res);
      }
      catch(error){

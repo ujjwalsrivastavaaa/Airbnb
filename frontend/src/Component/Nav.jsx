@@ -14,17 +14,19 @@ import { FaTreeCity } from "react-icons/fa6";
 import { BiBuildingHouse } from "react-icons/bi";
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import {authDataContext} from "../Context/AuthContext";
+import {authDataContext} from "../Context/AuthContext.jsx";
+import { userDataContext } from "../Context/UserContext.jsx";
 
 function Nav(){
  
-
+   let {userData,setUserData}=useContext(userDataContext)
     let [showpopup,setShowpopup]= useState(false)
    let {serverUrl}= useContext(authDataContext)
     let navigate=useNavigate();
     const handleLogout=async (params)=>{
       try{
     let result= await axios.post(serverUrl+"/api/auth/logout",{withCredentials:true})
+    setUserData(null)
     console.log(result)
       }
       catch(error){
@@ -43,7 +45,8 @@ function Nav(){
           <span className="text-[18px] cursor-pointer rounded-[50px] hover:bg-[#ded9d9] px-[8px] py-[20px] hidden md:block ">List Your Home</span>
          <button className="px-[20px] py-[20px] flex items-center justify-center gap-[10px] border-[1px] border-[#8d8c8c] rounded-[50px] hover:shadow-lg " onClick={()=>setShowpopup(prev=>!prev)}>
          <span> <GiHamburgerMenu className="w-[20px] h-[20px]" /> </span>  
-        <span><CgProfile className="w-[23px] h-[23px]" /> </span>
+       { userData==null && <span><CgProfile className="w-[23px] h-[23px]" /> </span>}
+       { userData!=null && <span className="w-[30px] h-[30px] bg-[#080808] text-[white] rounded-full flex item-center justify-center">{userData.name.slice(0,1)}</span>}
          </button>
        { showpopup && <div className="w-[220px] h-[250px] absolute bg-slate-50 top-[110%] right-[3%] border-[1px] rounded-lg border-[#aaa9a9] z-[10] md:right[10%]" >
           <ul className="w-[100%] h-[100%] text-[17px] flex items-start justify-around flex-col py-[10px]">
