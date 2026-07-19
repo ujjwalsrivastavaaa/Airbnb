@@ -1,5 +1,5 @@
 import mongoose, { Mongoose } from 'mongoose'
-import User from "./user.model.js"
+import {User} from "./user.model.js"
 const ListingSchmea =new mongoose.Schema({
     title:{
       type:String,
