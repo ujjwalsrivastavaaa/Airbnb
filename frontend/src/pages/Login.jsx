@@ -35,7 +35,7 @@ function Login(){
               welcome to Airbnb
             </h1>
                       
-                        <div className='w-[90%] flex items-start justify-start flex-col gap-[10px]'>
+                     <div className='w-[90%] flex items-start justify-start flex-col gap-[10px]'>
                         <label htmlFor="email" className='text-[20px] text-[black]'>
                           email:
                         </label>
@@ -48,7 +48,7 @@ function Login(){
                         <input type={show?"text":"password"} onChange={(e)=>setPassword(e.target.value)} id="password" value={password} name="password" className='w-[90%] h-[40px] border-[2px] border-[#555656] rounded-lg px-[20px]' />
                        {!show &&<FaEye className='w-[22px] h-[22px] absolute right-[12%] bottom-[10px] cursor-pointer' onClick={() => setShow(prev => !prev)}/>}
                       {show && <FaEyeSlash className='w-[22px] h-[22px] absolute right-[12%] bottom-[10px] cursor-pointer' onClick={() => setShow(prev => !prev)}/>}
-                        </div>
+                     </div>
                         <button className='px-[50px] py-[10px] bg-[red] text-[white] rounded-lg hover:bg-[#005999] md:px[100px] '>
                           Login
                         </button>
