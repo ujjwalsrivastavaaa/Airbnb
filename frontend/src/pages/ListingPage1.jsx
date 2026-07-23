@@ -1,7 +1,8 @@
 import Reaact from 'react';
   import { FaArrowLeft } from "react-icons/fa";
-
+  import { useNavigate } from 'react-router-dom';
 function ListingPage1(){
+    let navigate=useNavigate();
     return(
 <div className='w-[100%] h-[100vh] bg-white flex items-center justify-center relative overflow-auto'>
 <form className="max-w-[900px] w-[90%] h-[550px] flex items-center justify-start flex-col gap-[10px] border-black md:items-start overflow-auto mt-[50px]">
