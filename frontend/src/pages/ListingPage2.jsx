@@ -54,7 +54,7 @@ function ListingPage2(){
         </div>
 
          <div className='w-[180px] h-[100px] flex justify-center items-center flex-col cursor-pointer border-[2px] hover:border-[#a6a5a5] text-[16px] rounded-lg'>
-         <SiHomeassistantcommunitystore className='w-[30px] h-[30px] text-[black]'/><h3>Shopping</h3>
+         <SiHomeassistantcommunitystore className='w-[30px] h-[30px] text-[black]'/><h3>Shop</h3>
         </div>
 
 
